@@ -267,4 +267,16 @@ textarea:focus {
     margin-left: 0;
     margin-right: 1rem;
   }
+  .portfolio-item-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-item-link:hover .portfolio-item {
+  box-shadow: 0 8px 20px rgba(8, 21, 64, 0.3);
+  transform: scale(1.03);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
 }
