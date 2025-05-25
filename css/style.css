@@ -297,5 +297,26 @@ textarea:focus {
   border: none;
 }
 
+  .tiktok-video {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 375px; /* Standard TikTok/YouTube video size */
+  aspect-ratio: 9 / 16; /* Vertical 9:16 aspect ratio */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.custom-iframe {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: none;
+}
+
 
 }
