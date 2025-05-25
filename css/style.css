@@ -278,5 +278,24 @@ textarea:focus {
   transform: scale(1.03);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+  .video-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  aspect-ratio: 16 / 9; /* Maintains 16:9 aspect ratio */
+}
+
+.video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
 
 }
