@@ -5,6 +5,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - Blog</title>
   <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* Blog date style */
+    .blog-date {
+      font-size: 0.85rem;
+      color: #666666;
+      margin-top: -0.5rem;
+      margin-bottom: 1rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    /* Collapsible blog post */
+    .blog-post p:not(:first-child) {
+      display: none;
+      margin-top: 0;
+    }
+
+    .blog-post.expanded p {
+      display: block;
+    }
+
+    /* Cursor pointer on title */
+    .blog-post h3 {
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      padding-right: 20px;
+    }
+
+    /* Add a plus/minus icon */
+    .blog-post h3::after {
+      content: '+';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+
+    .blog-post.expanded h3::after {
+      content: '−';
+      color: #0b1d51;
+      transform: translateY(-50%) rotate(180deg);
+    }
+
+    /* Smooth transition */
+    .blog-post p {
+      transition: all 0.3s ease;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -24,6 +74,7 @@
 
       <article class="blog-post">
         <h3>Harmony in Chaos: How Algorhythm Leverages Diverse Skills for a Thriving Work Environment</h3>
+        <div class="blog-date">May 23, 2025</div>
         <p>
           At Algorhythm, we believe that innovation thrives where creativity meets structure—and nowhere is this synergy more evident than in our work environment. By intentionally aligning the unique strengths of our team members—ranging from music production to conceptual art, vocal expression, and administrative precision—we’ve crafted a workspace that not only optimizes productivity but also fuels artistic and operational excellence.
         </p>
@@ -40,6 +91,7 @@
 
       <article class="blog-post">
         <h3>Lessons in Collaboration: How "The Tarantanods" Taught Us the Power of Client Input</h3>
+        <div class="blog-date">May 18, 2025</div>
         <p>
           At Algorhythm, our recent work on The Tarantanods was more than just a creative endeavor—it was a masterclass in client collaboration. By immersing ourselves in firsthand experiences and prioritizing direct input from stakeholders, we uncovered invaluable insights that shaped both the project and our approach to future work.
         </p>
@@ -67,5 +119,17 @@
   </footer>
 
   <script src="js/main.js" defer></script>
+  <script>
+    // Click to toggle blog post expansion
+    document.addEventListener('DOMContentLoaded', () => {
+      const posts = document.querySelectorAll('.blog-post h3');
+      posts.forEach(title => {
+        title.addEventListener('click', () => {
+          const post = title.parentElement;
+          post.classList.toggle('expanded');
+        });
+      });
+    });
+  </script>
 </body>
 </html>
