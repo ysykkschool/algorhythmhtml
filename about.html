@@ -4,80 +4,122 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - About</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0b1d51',
+            accent: '#c9bfae',
+            beige: '#f9f7f1',
+            rhythm: '#8B4513',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(11,29,81,0.18)',
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(120deg, #c9bfae 60%, #f9f7f1 100%)',
+            'glass': 'linear-gradient(120deg,rgba(255,255,255,0.25),rgba(201,191,174,0.15))',
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes glow {
+      0% { text-shadow: 0 0 8px #c9bfae; }
+      100% { text-shadow: 0 0 24px #0b1d51; }
+    }
+    .animate-glow {
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>Algorhythm</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html" class="active">About</a>
-      <a href="portfolio-music.html">Portfolio & Music</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md shadow-glass border-b border-white/20">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="font-display text-3xl font-bold tracking-wide text-primary drop-shadow">Algorhythm</h1>
+      <nav class="flex gap-6">
+        <a href="index.html" class="text-primary hover:text-accent font-semibold transition">Home</a>
+        <a href="about.html" class="text-white bg-primary px-4 py-1 rounded-lg font-semibold shadow transition">About</a>
+        <a href="portfolio-music.html" class="text-primary hover:text-accent font-semibold transition">Portfolio & Music</a>
+        <a href="blog.html" class="text-primary hover:text-accent font-semibold transition">Blog</a>
+        <a href="contact.html" class="text-primary hover:text-accent font-semibold transition">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section>
-      <h2>About Algorhythm</h2>
-      <p>
-        Algorhythm is a creative studio specializing in original soundtracks for films
-        and advertisements. We combine algorithmic precision with rhythmic artistry to
-        craft unique musical experiences.
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
+    <!-- Hero / About -->
+    <section class="rounded-3xl shadow-glass bg-hero-gradient p-10 text-center relative overflow-hidden">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-primary drop-shadow mb-4">About Algorhythm</h2>
+      <p class="text-lg md:text-xl text-primary/90 max-w-2xl mx-auto">
+        Algorhythm is a creative studio specializing in original soundtracks for films and advertisements. We combine algorithmic precision with rhythmic artistry to craft unique musical experiences.
+      </p>
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl"></div>
+    </section>
+
+    <!-- Name Explanation -->
+    <section class="rounded-2xl bg-glass shadow-glass p-8">
+      <h2 class="font-display text-2xl font-bold text-primary mb-4">The Story Behind Our Name</h2>
+      <div class="flex flex-wrap items-center justify-center gap-3 text-xl font-bold mb-4">
+        <span class="text-primary animate-pulse">Algorithm</span>
+        <span class="text-gray-400">+</span>
+        <span class="text-rhythm animate-pulse">Rhythm</span>
+        <span class="text-gray-400">=</span>
+        <span class="text-primary text-2xl animate-glow">Algorhythm</span>
+      </div>
+      <p class="text-primary/90">
+        <strong>Algorhythm</strong> represents the fusion of two worlds: the precision and logic of <em>algorithms</em> with the soul and flow of <em>rhythm</em>. Just as algorithms provide structure and predictability in technology, rhythm provides the heartbeat and emotional core of music. By combining these elements, we create soundtracks that are both technically sophisticated and emotionally resonant—music that thinks as much as it feels.
       </p>
     </section>
 
-    <section class="name-explanation">
-      <h2>The Story Behind Our Name</h2>
-      <div class="name-breakdown">
-        <div class="name-part">
-          <span class="algorithm">Algorithm</span>
-          <span class="plus">+</span>
-          <span class="rhythm">Rhythm</span>
-          <span class="equals">=</span>
-          <span class="algorhythm">Algorhythm</span>
+    <!-- Documentary Film -->
+    <section class="rounded-2xl bg-glass shadow-glass p-8">
+      <h2 class="font-display text-2xl font-bold text-primary mb-4">Our Documentary Film</h2>
+      <div class="flex justify-center mb-4">
+        <div class="w-full max-w-2xl rounded-xl overflow-hidden shadow-lg border-4 border-accent/30">
+          <video controls poster="images/documentary-poster.jpg" class="w-full h-64 object-cover bg-black">
+            <source src="videos/algorhythm-documentary.mp4" type="video/mp4">
+            <source src="videos/algorhythm-documentary.webm" type="video/webm">
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
-      <p>
-        Our name <strong>Algorhythm</strong> represents the perfect fusion of two worlds: the precision and logic of <em>algorithms</em> with the soul and flow of <em>rhythm</em>. Just as algorithms provide structure and predictability in technology, rhythm provides the heartbeat and emotional core of music. By combining these elements, we create soundtracks that are both technically sophisticated and emotionally resonant—music that thinks as much as it feels.
-      </p>
-    </section>
-
-    <section class="documentary-section">
-      <h2>Our Documentary Film</h2>
-      <div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/yEjk-XTM4ts?si=3IJ0rOJgdJ2v0HKu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      <p class="video-description">
+      <p class="text-center text-primary/80 italic">
         Discover the story behind Algorhythm in our documentary film. Follow our journey from concept to creation, and see how we blend technology with artistry to craft unforgettable soundtracks.
       </p>
     </section>
 
-    <section>
-      <h2>Mission Statement</h2>
-      <p>
-        Algorhythm aims to bring films and series to life by providing audibility through
-        musical pieces that reflect the essence of the story.
-      </p>
-    </section>
-
-    <section>
-      <h2>Vision Statement</h2>
-      <p>
-        At Algorhythm, we bring stories to life through music. Our sound develops
-        memorable film experiences, strengthens narratives, and elevates emotion. We
-        create a distinctive personality with each composition that listeners can
-        recognize right away. When people hear our music, they don't just listen, they
-        feel the story.
-      </p>
+    <!-- Mission & Vision -->
+    <section class="grid md:grid-cols-2 gap-8">
+      <div class="rounded-2xl bg-white/70 shadow-glass p-8 flex flex-col items-center">
+        <h2 class="font-display text-xl font-bold text-primary mb-2">Mission Statement</h2>
+        <p class="text-primary/90 text-center">
+          Algorhythm aims to bring films and series to life by providing audibility through musical pieces that reflect the essence of the story.
+        </p>
+      </div>
+      <div class="rounded-2xl bg-white/70 shadow-glass p-8 flex flex-col items-center">
+        <h2 class="font-display text-xl font-bold text-primary mb-2">Vision Statement</h2>
+        <p class="text-primary/90 text-center">
+          At Algorhythm, we bring stories to life through music. Our sound develops memorable film experiences, strengthens narratives, and elevates emotion. We create a distinctive personality with each composition that listeners can recognize right away. When people hear our music, they don't just listen, they feel the story.
+        </p>
+      </div>
     </section>
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-white/60 backdrop-blur-md border-t border-white/20 text-primary-dark text-center py-6 mt-12 shadow-inner">
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
-
-  <script src="js/main.js" defer></script>
 </body>
 </html>

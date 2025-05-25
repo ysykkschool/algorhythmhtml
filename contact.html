@@ -4,61 +4,91 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - Contact</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0b1d51',
+            accent: '#c9bfae',
+            beige: '#f9f7f1',
+            rhythm: '#8B4513',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(11,29,81,0.18)',
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(120deg, #c9bfae 60%, #f9f7f1 100%)',
+            'glass': 'linear-gradient(120deg,rgba(255,255,255,0.25),rgba(201,191,174,0.15))',
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Algorhythm</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio-music.html">Portfolio & Music</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html" class="active">Contact</a>
-    </nav>
+<body class="min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md shadow-glass border-b border-white/20">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="font-display text-3xl font-bold tracking-wide text-primary drop-shadow">Algorhythm</h1>
+      <nav class="flex gap-6">
+        <a href="index.html" class="text-primary hover:text-accent font-semibold transition">Home</a>
+        <a href="about.html" class="text-primary hover:text-accent font-semibold transition">About</a>
+        <a href="portfolio-music.html" class="text-primary hover:text-accent font-semibold transition">Portfolio & Music</a>
+        <a href="blog.html" class="text-primary hover:text-accent font-semibold transition">Blog</a>
+        <a href="contact.html" class="text-white bg-primary px-4 py-1 rounded-lg font-semibold shadow transition">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-10">
     <section>
-      <h2>Contact Us</h2>
-      
-      <div class="contact-info">
-        <div class="contact-item">
-          <div class="contact-icon">📧</div>
-          <div class="contact-details">
-            <h3>Email</h3>
-            <a href="mailto:algorhythm.ost@gmail.com">algorhythm.ost@gmail.com</a>
+      <h2 class="font-display text-3xl font-bold text-primary mb-8">Contact Us</h2>
+      <div class="flex flex-col md:flex-row gap-8 mb-10">
+        <div class="flex-1 rounded-2xl bg-glass shadow-glass p-8 flex items-center gap-4">
+          <div class="text-3xl bg-accent/30 rounded-full w-16 h-16 flex items-center justify-center shadow">
+            📧
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-primary mb-1">Email</h3>
+            <a href="mailto:algorhythm.ost@gmail.com" class="text-primary font-semibold hover:text-accent transition">algorhythm.ost@gmail.com</a>
           </div>
         </div>
-        
-        <div class="contact-item">
-          <div class="contact-icon">📱</div>
-          <div class="contact-details">
-            <h3>Mobile</h3>
-            <a href="tel:+639213958608">+63 921 395 8608</a>
+        <div class="flex-1 rounded-2xl bg-glass shadow-glass p-8 flex items-center gap-4">
+          <div class="text-3xl bg-accent/30 rounded-full w-16 h-16 flex items-center justify-center shadow">
+            📱
+          </div>
+          <div>
+            <h3 class="font-display text-lg font-bold text-primary mb-1">Mobile</h3>
+            <a href="tel:+639213958608" class="text-primary font-semibold hover:text-accent transition">+63 921 395 8608</a>
           </div>
         </div>
       </div>
+      <form action="https://formspree.io/f/your-form-id" method="POST" class="rounded-2xl bg-glass shadow-glass p-8 max-w-xl mx-auto">
+        <label for="name" class="block font-bold text-primary mb-1">Name</label>
+        <input type="text" id="name" name="name" required class="w-full mb-4 px-4 py-2 rounded-lg border border-accent/40 focus:border-primary focus:ring-2 focus:ring-accent transition" />
 
-      <form action="https://formspree.io/f/your-form-id" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required />
+        <label for="email" class="block font-bold text-primary mb-1">Email</label>
+        <input type="email" id="email" name="_replyto" required class="w-full mb-4 px-4 py-2 rounded-lg border border-accent/40 focus:border-primary focus:ring-2 focus:ring-accent transition" />
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="_replyto" required />
+        <label for="message" class="block font-bold text-primary mb-1">Message</label>
+        <textarea id="message" name="message" rows="5" required class="w-full mb-6 px-4 py-2 rounded-lg border border-accent/40 focus:border-primary focus:ring-2 focus:ring-accent transition"></textarea>
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit" class="btn">Send Message</button>
+        <button type="submit" class="w-full bg-primary text-white font-bold py-3 rounded-lg shadow hover:bg-accent hover:text-primary transition">Send Message</button>
       </form>
     </section>
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-white/60 backdrop-blur-md border-t border-white/20 text-primary-dark text-center py-6 mt-12 shadow-inner">
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
-
-  <script src="js/main.js" defer></script>
 </body>
 </html>

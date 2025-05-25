@@ -4,64 +4,95 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - Home</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0b1d51',
+            accent: '#c9bfae',
+            beige: '#f9f7f1',
+            rhythm: '#8B4513',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(11,29,81,0.18)',
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(120deg, #c9bfae 60%, #f9f7f1 100%)',
+            'glass': 'linear-gradient(120deg,rgba(255,255,255,0.25),rgba(201,191,174,0.15))',
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    @keyframes glow {
+      0% { text-shadow: 0 0 8px #c9bfae; }
+      100% { text-shadow: 0 0 24px #0b1d51; }
+    }
+    .animate-glow {
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+  </style>
 </head>
-<body>
-  <header>
-    <h1>Algorhythm</h1>
-    <nav>
-      <a href="index.html" class="active">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio-music.html">Portfolio & Music</a>
-      <a href="blog.html">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md shadow-glass border-b border-white/20">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="font-display text-3xl font-bold tracking-wide text-primary drop-shadow">Algorhythm</h1>
+      <nav class="flex gap-6">
+        <a href="index.html" class="text-white bg-primary px-4 py-1 rounded-lg font-semibold shadow transition">Home</a>
+        <a href="about.html" class="text-primary hover:text-accent font-semibold transition">About</a>
+        <a href="portfolio-music.html" class="text-primary hover:text-accent font-semibold transition">Portfolio & Music</a>
+        <a href="blog.html" class="text-primary hover:text-accent font-semibold transition">Blog</a>
+        <a href="contact.html" class="text-primary hover:text-accent font-semibold transition">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <h2>Algorhythm</h2>
-      <p>"Feel the Rhythm"</p>
+  <!-- Main Content -->
+  <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
+    <!-- Hero -->
+    <section class="rounded-3xl shadow-glass bg-hero-gradient p-10 text-center relative overflow-hidden">
+      <h2 class="font-display text-4xl md:text-5xl font-bold text-primary drop-shadow mb-4">Welcome to Algorhythm</h2>
+      <p class="text-lg md:text-xl text-primary/90 max-w-2xl mx-auto">
+        Original soundtracks crafted to bring films and advertisements to life with rhythm and emotion.
+      </p>
+      <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/20 rounded-full blur-2xl"></div>
+      <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-accent/30 rounded-full blur-2xl"></div>
+    </section>
+
+    <!-- Featured Works -->
     <section>
-      <h2>Featured Works</h2>
-      <div class="portfolio-grid">
-        <a href="portfolio-music.html#eternal-dawn" class="portfolio-item-link">
-          <div class="portfolio-item">
-            <img src="images/eternal-dawn.jpg" alt="Eternal Dawn" />
-            <div class="portfolio-content">
-              <h3>Film Soundtrack: "Eternal Dawn"</h3>
-              <p>A haunting melody that captures the essence of hope and renewal.</p>
-            </div>
+      <h2 class="font-display text-2xl font-bold text-primary mb-6">Featured Works</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <a href="portfolio-music.html#eternal-dawn" class="block rounded-2xl bg-glass shadow-glass overflow-hidden hover:scale-105 hover:shadow-2xl transition">
+          <img src="images/eternal-dawn.jpg" alt="Eternal Dawn" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h3 class="font-display text-xl text-primary font-bold mb-2">Film Soundtrack: "Eternal Dawn"</h3>
+            <p class="text-primary/90">A haunting melody that captures the essence of hope and renewal.</p>
           </div>
         </a>
-
-        <a href="portfolio-music.html#city-lights" class="portfolio-item-link">
-          <div class="portfolio-item">
-            <img src="images/city-lights.jpg" alt="City Lights" />
-            <div class="portfolio-content">
-              <h3>Advertisement: "City Lights"</h3>
-              <p>Upbeat and catchy tune for a leading urban brand campaign.</p>
-            </div>
+        <a href="portfolio-music.html#city-lights" class="block rounded-2xl bg-glass shadow-glass overflow-hidden hover:scale-105 hover:shadow-2xl transition">
+          <img src="images/city-lights.jpg" alt="City Lights" class="w-full h-48 object-cover" />
+          <div class="p-6">
+            <h3 class="font-display text-xl text-primary font-bold mb-2">Advertisement: "City Lights"</h3>
+            <p class="text-primary/90">Upbeat and catchy tune for a leading urban brand campaign.</p>
           </div>
         </a>
       </div>
     </section>
-
-          </section>
-
-    <!-- YouTube Vertical Video Section -->
-    <section class="tiktok-video">
-      <div class="video-container">
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Mtf-VWcEJPU?si=4TZR0McVtMr8TyyO" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-    </section>
-
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-white/60 backdrop-blur-md border-t border-white/20 text-primary-dark text-center py-6 mt-12 shadow-inner">
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
-
-  <script src="css/js/main.js" defer></script>
 </body>
 </html>

@@ -4,130 +4,120 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - Blog</title>
-  <link rel="stylesheet" href="css/style.css" />
-  <style>
-    /* Blog date style */
-    .blog-date {
-      font-size: 0.85rem;
-      color: #666666;
-      margin-top: -0.5rem;
-      margin-bottom: 1rem;
-      font-family: 'Roboto', sans-serif;
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#0b1d51',
+            accent: '#c9bfae',
+            beige: '#f9f7f1',
+            rhythm: '#8B4513',
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Roboto', 'sans-serif'],
+          },
+          boxShadow: {
+            glass: '0 8px 32px 0 rgba(11,29,81,0.18)',
+          },
+          backgroundImage: {
+            'hero-gradient': 'linear-gradient(120deg, #c9bfae 60%, #f9f7f1 100%)',
+            'glass': 'linear-gradient(120deg,rgba(255,255,255,0.25),rgba(201,191,174,0.15))',
+          },
+        }
+      }
     }
-
-    /* Collapsible blog post */
-    .blog-post p:not(:first-child) {
-      display: none;
-      margin-top: 0;
-    }
-
-    .blog-post.expanded p {
-      display: block;
-    }
-
-    /* Cursor pointer on title */
-    .blog-post h3 {
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-      padding-right: 20px;
-    }
-
-    /* Add a plus/minus icon */
-    .blog-post h3::after {
-      content: '+';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      font-weight: bold;
-      transition: transform 0.3s ease;
-    }
-
-    .blog-post.expanded h3::after {
-      content: '−';
-      color: #0b1d51;
-      transform: translateY(-50%) rotate(180deg);
-    }
-
-    /* Smooth transition */
-    .blog-post p {
-      transition: all 0.3s ease;
-    }
-  </style>
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Algorhythm</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="portfolio-music.html">Portfolio & Music</a>
-      <a href="blog.html" class="active">Blog</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md shadow-glass border-b border-white/20">
+    <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
+      <h1 class="font-display text-3xl font-bold tracking-wide text-primary drop-shadow">Algorhythm</h1>
+      <nav class="flex gap-6">
+        <a href="index.html" class="text-primary hover:text-accent font-semibold transition">Home</a>
+        <a href="about.html" class="text-primary hover:text-accent font-semibold transition">About</a>
+        <a href="portfolio-music.html" class="text-primary hover:text-accent font-semibold transition">Portfolio & Music</a>
+        <a href="blog.html" class="text-white bg-primary px-4 py-1 rounded-lg font-semibold shadow transition">Blog</a>
+        <a href="contact.html" class="text-primary hover:text-accent font-semibold transition">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
+  <!-- Main Content -->
+  <main class="max-w-3xl mx-auto px-4 py-10 space-y-10">
     <section>
-      <h2>Blog</h2>
-
-      <article class="blog-post">
-        <h3>Harmony in Chaos: How Algorhythm Leverages Diverse Skills for a Thriving Work Environment</h3>
-        <div class="blog-date">May 23, 2025</div>
-        <p>
-          At Algorhythm, we believe that innovation thrives where creativity meets structure—and nowhere is this synergy more evident than in our work environment. By intentionally aligning the unique strengths of our team members—ranging from music production to conceptual art, vocal expression, and administrative precision—we’ve crafted a workspace that not only optimizes productivity but also fuels artistic and operational excellence.
-        </p>
-        <p>
-          The music producer’s structured approach ensures complex projects stay on track without stifling creativity. The concept artist transforms abstract ideas into visual blueprints, aligning teams and stakeholders with clarity. The singer brings emotional depth to collaboration, fostering empathy in communication and team morale. Meanwhile, the secretary’s organizational mastery keeps operations seamless, ensuring every detail is handled efficiently.
-        </p>
-        <p>
-          Together, these roles create an ecosystem where efficiency and inspiration coexist, allowing us to deliver work that’s not only exceptional but also deeply aligned with our values. Here, individual skills aren’t just utilized—they’re conducted into something greater than the sum of their parts.
-        </p>
-        <p>
-          At Algorhythm, we don’t just make music—we compose environments where every skill has a place to shine.
-        </p>
+      <h2 class="font-display text-3xl font-bold text-primary mb-8">Blog</h2>
+      <!-- Blog Post 1 -->
+      <article class="rounded-2xl bg-glass shadow-glass p-8 mb-8 transition hover:scale-105 hover:shadow-2xl cursor-pointer group" onclick="this.classList.toggle('expanded')">
+        <h3 class="font-display text-xl text-primary font-bold mb-1 flex items-center cursor-pointer">
+          Harmony in Chaos: How Algorhythm Leverages Diverse Skills for a Thriving Work Environment
+          <span class="ml-2 text-accent text-2xl group-[.expanded]:rotate-45 transition-transform">+</span>
+        </h3>
+        <div class="text-sm text-gray-500 mb-4">May 23, 2025</div>
+        <div class="blog-content">
+          <p>
+            At Algorhythm, we believe that innovation thrives where creativity meets structure—and nowhere is this synergy more evident than in our work environment. By intentionally aligning the unique strengths of our team members—ranging from music production to conceptual art, vocal expression, and administrative precision—we’ve crafted a workspace that not only optimizes productivity but also fuels artistic and operational excellence.
+          </p>
+          <div class="hidden group-[.expanded]:block">
+            <p>
+              The music producer’s structured approach ensures complex projects stay on track without stifling creativity. The concept artist transforms abstract ideas into visual blueprints, aligning teams and stakeholders with clarity. The singer brings emotional depth to collaboration, fostering empathy in communication and team morale. Meanwhile, the secretary’s organizational mastery keeps operations seamless, ensuring every detail is handled efficiently.
+            </p>
+            <p>
+              Together, these roles create an ecosystem where efficiency and inspiration coexist, allowing us to deliver work that’s not only exceptional but also deeply aligned with our values. Here, individual skills aren’t just utilized—they’re conducted into something greater than the sum of their parts.
+            </p>
+            <p>
+              At Algorhythm, we don’t just make music—we compose environments where every skill has a place to shine.
+            </p>
+          </div>
+        </div>
       </article>
-
-      <article class="blog-post">
-        <h3>Lessons in Collaboration: How "The Tarantanods" Taught Us the Power of Client Input</h3>
-        <div class="blog-date">May 18, 2025</div>
-        <p>
-          At Algorhythm, our recent work on The Tarantanods was more than just a creative endeavor—it was a masterclass in client collaboration. By immersing ourselves in firsthand experiences and prioritizing direct input from stakeholders, we uncovered invaluable insights that shaped both the project and our approach to future work.
-        </p>
-        <p>
-          From the outset, The Tarantanods required us to step beyond assumptions and embrace the voices of those who would ultimately interact with the final product. Early-stage workshops and iterative feedback loops allowed clients to shape direction, challenge ideas, and refine concepts in real time. This process wasn’t always easy—there were moments of ambiguity, conflicting priorities, and the need for compromise—but these challenges became our greatest teachers.
-        </p>
-        <p>
-          One of the most profound lessons? Client input isn’t just about refining details—it’s about building trust. When clients felt heard and involved, they became partners rather than passive recipients. This shift led to faster decision-making, fewer revisions, and a shared sense of ownership over the project’s success. It also forced us to sharpen our communication skills: translating abstract ideas into actionable plans, listening with empathy, and balancing creative vision with practical constraints.
-        </p>
-        <p>
-          Another key takeaway was the power of adaptability. Client collaboration often means pivoting midstream, rethinking assumptions, or even starting over when feedback reveals a better path. The Tarantanods taught us to see these moments not as setbacks but as opportunities—to innovate, to iterate, and to grow.
-        </p>
-        <p>
-          Above all, this project reinforced that collaboration is an art form in itself. It’s not just about delivering what clients ask for—it’s about understanding their unspoken needs, aligning expectations, and fostering a relationship built on mutual respect and shared goals.
-        </p>
-        <p>
-          As we move forward, the lessons from The Tarantanods remind us that the most impactful work isn’t created in isolation but through open dialogue, trust, and the courage to let client voices shape every step of the journey. At Algorhythm, collaboration is no longer just a strategy—it’s our heartbeat.
-        </p>
+      <!-- Blog Post 2 -->
+      <article class="rounded-2xl bg-glass shadow-glass p-8 mb-8 transition hover:scale-105 hover:shadow-2xl cursor-pointer group" onclick="this.classList.toggle('expanded')">
+        <h3 class="font-display text-xl text-primary font-bold mb-1 flex items-center cursor-pointer">
+          Lessons in Collaboration: How "The Tarantanods" Taught Us the Power of Client Input
+          <span class="ml-2 text-accent text-2xl group-[.expanded]:rotate-45 transition-transform">+</span>
+        </h3>
+        <div class="text-sm text-gray-500 mb-4">May 18, 2025</div>
+        <div class="blog-content">
+          <p>
+            At Algorhythm, our recent work on The Tarantanods was more than just a creative endeavor—it was a masterclass in client collaboration. By immersing ourselves in firsthand experiences and prioritizing direct input from stakeholders, we uncovered invaluable insights that shaped both the project and our approach to future work.
+          </p>
+          <div class="hidden group-[.expanded]:block">
+            <p>
+              From the outset, The Tarantanods required us to step beyond assumptions and embrace the voices of those who would ultimately interact with the final product. Early-stage workshops and iterative feedback loops allowed clients to shape direction, challenge ideas, and refine concepts in real time. This process wasn’t always easy—there were moments of ambiguity, conflicting priorities, and the need for compromise—but these challenges became our greatest teachers.
+            </p>
+            <p>
+              One of the most profound lessons? Client input isn’t just about refining details—it’s about building trust. When clients felt heard and involved, they became partners rather than passive recipients. This shift led to faster decision-making, fewer revisions, and a shared sense of ownership over the project’s success. It also forced us to sharpen our communication skills: translating abstract ideas into actionable plans, listening with empathy, and balancing creative vision with practical constraints.
+            </p>
+            <p>
+              Another key takeaway was the power of adaptability. Client collaboration often means pivoting midstream, rethinking assumptions, or even starting over when feedback reveals a better path. The Tarantanods taught us to see these moments not as setbacks but as opportunities—to innovate, to iterate, and to grow.
+            </p>
+            <p>
+              Above all, this project reinforced that collaboration is an art form in itself. It’s not just about delivering what clients ask for—it’s about understanding their unspoken needs, aligning expectations, and fostering a relationship built on mutual respect and shared goals.
+            </p>
+            <p>
+              As we move forward, the lessons from The Tarantanods remind us that the most impactful work isn’t created in isolation but through open dialogue, trust, and the courage to let client voices shape every step of the journey. At Algorhythm, collaboration is no longer just a strategy—it’s our heartbeat.
+            </p>
+          </div>
+        </div>
       </article>
     </section>
   </main>
 
-  <footer>
+  <!-- Footer -->
+  <footer class="bg-white/60 backdrop-blur-md border-t border-white/20 text-primary-dark text-center py-6 mt-12 shadow-inner">
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
-
-  <script src="js/main.js" defer></script>
   <script>
-    // Click to toggle blog post expansion
-    document.addEventListener('DOMContentLoaded', () => {
-      const posts = document.querySelectorAll('.blog-post h3');
-      posts.forEach(title => {
-        title.addEventListener('click', () => {
-          const post = title.parentElement;
-          post.classList.toggle('expanded');
-        });
+    // Expand/collapse blog posts
+    document.querySelectorAll('.blog-post').forEach(post => {
+      post.addEventListener('click', function(e) {
+        if (e.target.tagName === 'A') return; // allow links
+        this.classList.toggle('expanded');
       });
     });
   </script>
