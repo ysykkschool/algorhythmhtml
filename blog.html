@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - Blog</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
@@ -30,9 +33,14 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .blog-content > div { display: none; }
+    .blog-post.expanded .blog-content > div { display: block; }
+    .blog-post .plus { transition: transform 0.3s; }
+    .blog-post.expanded .plus { transform: rotate(45deg); }
+  </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
+<body class="opacity-0 transition-opacity duration-700 min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md shadow-glass border-b border-white/20">
     <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
@@ -50,19 +58,20 @@
   <!-- Main Content -->
   <main class="max-w-3xl mx-auto px-4 py-10 space-y-10">
     <section>
-      <h2 class="font-display text-3xl font-bold text-primary mb-8">Blog</h2>
+      <h2 class="font-display text-3xl font-bold text-primary mb-8" data-aos="fade-down">Blog</h2>
       <!-- Blog Post 1 -->
-      <article class="rounded-2xl bg-glass shadow-glass p-8 mb-8 transition hover:scale-105 hover:shadow-2xl cursor-pointer group" onclick="this.classList.toggle('expanded')">
+      <article class="blog-post rounded-2xl bg-glass shadow-glass p-8 mb-8 transition hover:scale-105 hover:shadow-2xl cursor-pointer group"
+        data-aos="fade-up" data-aos-delay="100">
         <h3 class="font-display text-xl text-primary font-bold mb-1 flex items-center cursor-pointer">
           Harmony in Chaos: How Algorhythm Leverages Diverse Skills for a Thriving Work Environment
-          <span class="ml-2 text-accent text-2xl group-[.expanded]:rotate-45 transition-transform">+</span>
+          <span class="plus ml-2 text-accent text-2xl transition-transform">+</span>
         </h3>
         <div class="text-sm text-gray-500 mb-4">May 23, 2025</div>
         <div class="blog-content">
           <p>
             At Algorhythm, we believe that innovation thrives where creativity meets structure—and nowhere is this synergy more evident than in our work environment. By intentionally aligning the unique strengths of our team members—ranging from music production to conceptual art, vocal expression, and administrative precision—we’ve crafted a workspace that not only optimizes productivity but also fuels artistic and operational excellence.
           </p>
-          <div class="hidden group-[.expanded]:block">
+          <div>
             <p>
               The music producer’s structured approach ensures complex projects stay on track without stifling creativity. The concept artist transforms abstract ideas into visual blueprints, aligning teams and stakeholders with clarity. The singer brings emotional depth to collaboration, fostering empathy in communication and team morale. Meanwhile, the secretary’s organizational mastery keeps operations seamless, ensuring every detail is handled efficiently.
             </p>
@@ -76,17 +85,18 @@
         </div>
       </article>
       <!-- Blog Post 2 -->
-      <article class="rounded-2xl bg-glass shadow-glass p-8 mb-8 transition hover:scale-105 hover:shadow-2xl cursor-pointer group" onclick="this.classList.toggle('expanded')">
+      <article class="blog-post rounded-2xl bg-glass shadow-glass p-8 mb-8 transition hover:scale-105 hover:shadow-2xl cursor-pointer group"
+        data-aos="fade-up" data-aos-delay="200">
         <h3 class="font-display text-xl text-primary font-bold mb-1 flex items-center cursor-pointer">
           Lessons in Collaboration: How "The Tarantanods" Taught Us the Power of Client Input
-          <span class="ml-2 text-accent text-2xl group-[.expanded]:rotate-45 transition-transform">+</span>
+          <span class="plus ml-2 text-accent text-2xl transition-transform">+</span>
         </h3>
         <div class="text-sm text-gray-500 mb-4">May 18, 2025</div>
         <div class="blog-content">
           <p>
             At Algorhythm, our recent work on The Tarantanods was more than just a creative endeavor—it was a masterclass in client collaboration. By immersing ourselves in firsthand experiences and prioritizing direct input from stakeholders, we uncovered invaluable insights that shaped both the project and our approach to future work.
           </p>
-          <div class="hidden group-[.expanded]:block">
+          <div>
             <p>
               From the outset, The Tarantanods required us to step beyond assumptions and embrace the voices of those who would ultimately interact with the final product. Early-stage workshops and iterative feedback loops allowed clients to shape direction, challenge ideas, and refine concepts in real time. This process wasn’t always easy—there were moments of ambiguity, conflicting priorities, and the need for compromise—but these challenges became our greatest teachers.
             </p>
@@ -112,12 +122,22 @@
   <footer class="bg-white/60 backdrop-blur-md border-t border-white/20 text-primary-dark text-center py-6 mt-12 shadow-inner">
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
+  <!-- AOS JS and page fade-in -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
   <script>
-    // Expand/collapse blog posts
-    document.querySelectorAll('.blog-post').forEach(post => {
-      post.addEventListener('click', function(e) {
-        if (e.target.tagName === 'A') return; // allow links
-        this.classList.toggle('expanded');
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('opacity-0');
+      AOS.init({
+        once: true,
+        duration: 900,
+        easing: 'ease-out-cubic',
+      });
+      // Blog expand/collapse
+      document.querySelectorAll('.blog-post').forEach(post => {
+        post.addEventListener('click', function(e) {
+          if (e.target.tagName === 'A') return; // allow links
+          this.classList.toggle('expanded');
+        });
       });
     });
   </script>

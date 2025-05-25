@@ -5,6 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Algorhythm - Home</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <!-- AOS CSS -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    @keyframes glow {
+      0% { text-shadow: 0 0 8px #c9bfae; }
+      100% { text-shadow: 0 0 24px #0b1d51; }
+    }
+    .animate-glow {
+      animation: glow 2.5s ease-in-out infinite alternate;
+    }
+  </style>
   <script>
     tailwind.config = {
       theme: {
@@ -30,18 +42,8 @@
       }
     }
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    @keyframes glow {
-      0% { text-shadow: 0 0 8px #c9bfae; }
-      100% { text-shadow: 0 0 24px #0b1d51; }
-    }
-    .animate-glow {
-      animation: glow 2.5s ease-in-out infinite alternate;
-    }
-  </style>
 </head>
-<body class="min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
+<body class="opacity-0 transition-opacity duration-700 min-h-screen bg-gradient-to-br from-beige via-accent to-beige font-body text-primary">
   <!-- Header -->
   <header class="sticky top-0 z-50 bg-white/60 backdrop-blur-md shadow-glass border-b border-white/20">
     <div class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
@@ -59,7 +61,8 @@
   <!-- Main Content -->
   <main class="max-w-4xl mx-auto px-4 py-10 space-y-12">
     <!-- Hero -->
-    <section class="rounded-3xl shadow-glass bg-hero-gradient p-10 text-center relative overflow-hidden">
+    <section class="rounded-3xl shadow-glass bg-hero-gradient p-10 text-center relative overflow-hidden"
+      data-aos="fade-down">
       <h2 class="font-display text-4xl md:text-5xl font-bold text-primary drop-shadow mb-4">Welcome to Algorhythm</h2>
       <p class="text-lg md:text-xl text-primary/90 max-w-2xl mx-auto">
         Original soundtracks crafted to bring films and advertisements to life with rhythm and emotion.
@@ -69,17 +72,21 @@
     </section>
 
     <!-- Featured Works -->
-    <section>
+    <section data-aos="fade-up" data-aos-delay="200">
       <h2 class="font-display text-2xl font-bold text-primary mb-6">Featured Works</h2>
       <div class="grid md:grid-cols-2 gap-8">
-        <a href="portfolio-music.html#eternal-dawn" class="block rounded-2xl bg-glass shadow-glass overflow-hidden hover:scale-105 hover:shadow-2xl transition">
+        <a href="portfolio-music.html#eternal-dawn"
+          class="block rounded-2xl bg-glass shadow-glass overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-500"
+          data-aos="zoom-in" data-aos-delay="300">
           <img src="images/eternal-dawn.jpg" alt="Eternal Dawn" class="w-full h-48 object-cover" />
           <div class="p-6">
             <h3 class="font-display text-xl text-primary font-bold mb-2">Film Soundtrack: "Eternal Dawn"</h3>
             <p class="text-primary/90">A haunting melody that captures the essence of hope and renewal.</p>
           </div>
         </a>
-        <a href="portfolio-music.html#city-lights" class="block rounded-2xl bg-glass shadow-glass overflow-hidden hover:scale-105 hover:shadow-2xl transition">
+        <a href="portfolio-music.html#city-lights"
+          class="block rounded-2xl bg-glass shadow-glass overflow-hidden hover:scale-105 hover:shadow-2xl transition-all duration-500"
+          data-aos="zoom-in" data-aos-delay="400">
           <img src="images/city-lights.jpg" alt="City Lights" class="w-full h-48 object-cover" />
           <div class="p-6">
             <h3 class="font-display text-xl text-primary font-bold mb-2">Advertisement: "City Lights"</h3>
@@ -94,5 +101,18 @@
   <footer class="bg-white/60 backdrop-blur-md border-t border-white/20 text-primary-dark text-center py-6 mt-12 shadow-inner">
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
+
+  <!-- AOS JS and page fade-in -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.remove('opacity-0');
+      AOS.init({
+        once: true,
+        duration: 900,
+        easing: 'ease-out-cubic',
+      });
+    });
+  </script>
 </body>
 </html>
