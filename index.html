@@ -10,13 +10,12 @@
   <header>
     <h1>Algorhythm</h1>
     <nav>
-      <a href="index.html">Home</a>
+      <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
-      <a href="portfolio-music.html" class="active">Portfolio & Music</a>
+      <a href="portfolio-music.html">Portfolio & Music</a>
       <a href="blog.html">Blog</a>
       <a href="contact.html">Contact</a>
     </nav>
-
   </header>
 
   <main>
@@ -31,20 +30,25 @@
     <section>
       <h2>Featured Works</h2>
       <div class="portfolio-grid">
-        <div class="portfolio-item">
-          <img src="images/eternal-dawn.jpg" alt="Eternal Dawn" />
-          <div class="portfolio-content">
-            <h3>Film Soundtrack: "Eternal Dawn"</h3>
-            <p>A haunting melody that captures the essence of hope and renewal.</p>
+        <a href="portfolio-music.html#eternal-dawn" class="portfolio-item-link">
+          <div class="portfolio-item">
+            <img src="images/eternal-dawn.jpg" alt="Eternal Dawn" />
+            <div class="portfolio-content">
+              <h3>Film Soundtrack: "Eternal Dawn"</h3>
+              <p>A haunting melody that captures the essence of hope and renewal.</p>
+            </div>
           </div>
-        </div>
-        <div class="portfolio-item">
-          <img src="images/city-lights.jpg" alt="City Lights" />
-          <div class="portfolio-content">
-            <h3>Advertisement: "City Lights"</h3>
-            <p>Upbeat and catchy tune for a leading urban brand campaign.</p>
+        </a>
+
+        <a href="portfolio-music.html#city-lights" class="portfolio-item-link">
+          <div class="portfolio-item">
+            <img src="images/city-lights.jpg" alt="City Lights" />
+            <div class="portfolio-content">
+              <h3>Advertisement: "City Lights"</h3>
+              <p>Upbeat and catchy tune for a leading urban brand campaign.</p>
+            </div>
           </div>
-        </div>
+        </a>
       </div>
     </section>
   </main>
@@ -52,6 +56,7 @@
   <footer>
     &copy; 2025 Algorhythm. All rights reserved.
   </footer>
-  <script src="css/js/main.js" defer></script>
+
+  <script src="js/main.js" defer></script>
 </body>
 </html>
